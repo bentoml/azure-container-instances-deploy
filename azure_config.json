@@ -1,0 +1,13 @@
+{
+    "resource_group_name": "bentoml",
+    "location": "location",
+    "acr_sku": "Standard",
+    "port": 5000,
+    "memory": 2,
+    "cpu_count": 1,
+    "gpu": {"count": 1, "type": "k80"},
+    "environment_vars": {
+      "var": "value", 
+      "another_var": "value"
+    }
+}
