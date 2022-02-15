@@ -2,6 +2,10 @@
 
 Azure Container Instances is a great deployment strategy for deploying ML models endpoints that you know will get a consistant traffic or want to take advantage of accelerators like GPUs. You can also add autoscaling capabilities on top of this.
 
+> Note: For the time being this repos only supports `BentoML <= 0.13`. 
+> The Repo is in the process of being migrated to the new BentoML 1.0 release. You can track the progress
+> here [#89](https://github.com/bentoml/bentoctl/issues/89). 
+
 ## Prerequisites
 
 - An active Azure account configured on the machine with Azure CLI installed and configured
