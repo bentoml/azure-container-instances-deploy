@@ -1,12 +1,11 @@
 import sys
 import json
 
-from utils import get_configuration_value, run_shell_command
-from azure import generate_resource_names
+from .utils import run_shell_command
+from .azure import generate_resource_names
 
 
-def describe(deployment_name, config_json):
-    deployment_config = get_configuration_value(config_json)
+def describe(deployment_name, deployment_spec):
     _, aci_name = generate_resource_names(deployment_name)
 
     out, err = run_shell_command(
@@ -17,7 +16,7 @@ def describe(deployment_name, config_json):
             "--name",
             aci_name,
             "--resource-group",
-            deployment_config["resource_group_name"],
+            deployment_spec["resource_group_name"],
         ]
     )
 
@@ -26,13 +25,3 @@ def describe(deployment_name, config_json):
     description["IPAddress"] = out["ipAddress"]
 
     return description
-
-
-if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        raise Exception("Please provide deployment_name and configuration json")
-    deployment_name = sys.argv[1]
-    config_json = sys.argv[2] if sys.argv[2] else "ec2_config.json"
-
-    description = describe(deployment_name, config_json)
-    print(json.dumps(description, indent=2))

@@ -1,11 +1,10 @@
 import os
 import re
-import shutil
 
 from ruamel.yaml import YAML
 
-from utils import run_shell_command, get_configuration_value
-from azure.container_instance_template import ACI_TEMPLATE
+from ..utils import run_shell_command
+from .container_instance_template import ACI_TEMPLATE
 
 
 def get_docker_login_info(resource_group_name, container_registry_name):
@@ -66,18 +65,13 @@ def generate_aci_template(
     docker_image_tag,
     docker_username,
     docker_password,
-    config_json,
+    deployment_config,
 ):
     """
     Generate the template YAML file that specifies the properties of the container
     instances. The generated YAML file is stored in the same location as the config
     file location passed.
     """
-
-    # load the deployment config
-    config_dir = os.path.dirname(os.path.realpath(config_json))
-    deployment_config = get_configuration_value(config_json)
-
     template = ACI_TEMPLATE.format(
         container_group_name=aci_name,
         aci_name=aci_name,

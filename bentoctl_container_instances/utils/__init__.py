@@ -1,7 +1,10 @@
 import sys
 import subprocess
 import json
+
+import fs
 import docker
+from bentoml.bentos import Bento
 
 
 def run_shell_command(command, cwd=None, env=None, shell_mode=False):
@@ -79,10 +82,9 @@ def set_cors_settings(function_name, resource_group_name):
         )
 
 
-def get_configuration_value(config_file):
-    with open(config_file, "r") as file:
-        configuration = json.loads(file.read())
-    return configuration
+def get_tag_from_path(path: str):
+    bento = Bento.from_fs(fs.open_fs(path))
+    return bento.tag
 
 
 def build_docker_image(
