@@ -128,10 +128,10 @@ You can have a config file to specify the specifics for your deployment. There i
     "memory": 2,
     "cpu_count": 1,
     "gpu": {"count": 1, "type": "k80"},
-    "environment_vars": {
-      "var": "value", 
-      "another_var": "value"
-    }
+    "environment_variables": [{
+      "name": "TEST",
+      "value": "TEST_VALUE",
+    }]
 }
 ```
 
