@@ -9,6 +9,11 @@ OPERATOR_SCHEMA = {
         "help_message": "Resource group into which the resources have to be created.",
         "required": True,
     },
+    "acr_name": {
+        "type": "string",
+        "help_message": "The Azure Container Registry name that you want to use to store you images.",
+        "required": True,
+    },
     "location": {
         "type": "string",
         "help_message": "Azure region or location that you want to deploy to. By default it will use the same one as your resource group",

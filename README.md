@@ -136,6 +136,7 @@ You can have a config file to specify the specifics for your deployment. There i
 ```
 
 * `resource_group_name`: All Azure resources are created inside a resource group. If you already have a resource group that you would like to use for the deployment, put its name here. If you don't have one, you can easily create it with `az group create --name <rg_name> --location <location>"`
+* `acr_name`: The Azure Container Registry name that you want to use to store you images. To create one run `az acr create --name ACR_NAME --sku ACR_SKU --resource-group RESOURCE_GROUP_NAME --admin-enabled`
 * `location`: Azure region or location that you want to deploy to. By default it will use the same one as your resource group
 * `acr_sku`: The SKU of the container registry.  Allowed values: Basic, Classic, Premium, Standard. Default is `Standard`
 * `port`: The port you want the endpoint to use. By default it is 5000

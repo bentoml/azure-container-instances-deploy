@@ -15,6 +15,8 @@ def get_docker_login_info(resource_group_name, container_registry_name):
             "update",
             "--name",
             container_registry_name,
+            "--resource-group",
+            resource_group_name,
             "--admin-enabled",
             "true",
         ],
@@ -109,6 +111,7 @@ def generate_aci_template(
             "sku": deployment_config["gpu"]["type"],
         }
 
+    config_dir = os.path.curdir
     template_file_path = os.path.join(config_dir, "aci_template.yaml")
     with open(template_file_path, 'w') as f:
         yaml.dump(template, f)
