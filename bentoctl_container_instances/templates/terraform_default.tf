@@ -114,5 +114,5 @@ output "resource_group_name" {
 }
 
 output "ip_address" {
-  value = azurerm_container_group.bentoml.ip_address
+  value = "http://${azurerm_container_group.bentoml.ip_address}:{var.bentoml_port}"
 }
