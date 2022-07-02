@@ -113,6 +113,6 @@ output "resource_group_name" {
   value = data.azurerm_resource_group.rg.name
 }
 
-output "ip_address" {
+output "endpoint" {
   value = "http://${azurerm_container_group.bentoml.ip_address}:{var.bentoml_port}"
 }
