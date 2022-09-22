@@ -25,7 +25,7 @@ This quickstart will walk you through deploying a bento into Azure Container Ins
 ### Steps
 1. Install bentoctl via pip
     ```bash
-    pip install --pre bentoctl
+    pip install bentoctl
     ```
 
 2. Install the operator
