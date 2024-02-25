@@ -1,4 +1,8 @@
-# Azure Container Instance deployment
+## ⚠️ BentoCTL project has been deprecated
+
+Plese see the latest BentoML documentation on OCI-container based deployment workflow: https://docs.bentoml.com/
+
+## Azure Container Instance deployment
 
 Azure Container Instances is a great deployment strategy for deploying ML models endpoints that you know will get a consistant traffic or want to take advantage of accelerators like GPUs. You can also add autoscaling capabilities on top of this. Using [BentoML](https://github.com/bentoml/BentoML) and [bentoctl](https://github.com/bentoml/bentoctl), you can use with your favourite ML frameworks and easily manage your infrastructure via terraform.
 
